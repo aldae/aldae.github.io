@@ -1,0 +1,539 @@
+html {
+	position: relative;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	/*width: 1000px;*/
+}
+
+body {
+	height: 670px;
+	background-image: url('../img/flower.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	/*z-index: 2;*/
+}
+
+section {
+	/*position: absolute;*/
+	min-height: 670px;
+	/*height: 650px;*/
+	visibility: hidden;
+	position: absolute;
+}
+
+/*Penerima*/
+
+.penerima {
+	top: 0px;
+	width: 100%;
+	/*position: absolute;*/
+	float: left;
+	visibility: visible;
+	/*background-color: #f7f2cc;*/
+	/*background-image: url('../img/flower.png') no-repeat;
+	background-attachment: fixed;
+	background-size: cover;*/
+	/*background-position: 70px -220px;*/
+	/*color: #eaeaea;*/
+	/*overflow: hidden;*/
+	/*display: block;*/
+}
+
+.divPenerima {
+	height: 670px;
+	background-image: url('../img/flowers-1.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.penerima h2 {
+	padding-top: 30px;
+	visibility: visible;
+	/*font-family: 'Yellowtail', cursive;*/
+	/*width: 100%;*/
+	font-family: 'Brush Script Std';
+	font-size: 0.1em;
+	color: white;
+	padding-top: 20px;
+	text-align: center;
+	/*opacity: 0;*/
+	/*transition: 1s;*/
+	/*font-family: 'Segoe Script';*/
+	/*background-color: lightgrey;*/
+	/*background-image: url('/img/img-header.jpg') no-repeat;*/
+
+}
+
+.penerima h1 {
+	font-family: 'Giddyup Std';
+	font-size: 6em;
+}
+
+.penerima p {
+	font-family: 'OCR A Std';
+	/*font-family: 'Lithos Pro Regular';*/
+	/*font-family: 'Segoe Script';*/
+}
+
+.penerima h4,.penerima h1,.penerima p, .penerima button {
+	/*padding-bottom: 20px;*/
+	position: relative;
+	text-align: center;
+	/*color: white;*/
+	visibility: hidden;
+	/*top: -200px;*/
+	color: pink;
+}
+
+.penerima p{
+	top: 200px;
+}
+
+.bOpen {
+	position: relative;
+	text-align: center;
+	width: 140px;
+	/*height: 40px;*/
+	border-radius: 20px 20px 20px 20px;
+
+	animation-name: backgroundColorPalette;
+  	animation-duration: 2s;
+  	animation-iteration-count: infinite;
+  	animation-direction: alternate;
+  	animation-timing-function: linear;
+
+}
+
+@keyframes backgroundColorPalette {
+  0% {
+    background: #ee6055;
+  }
+  /*25% {
+    background: #60d394;
+  }*/
+  50% {
+    background: #aaf683;
+  }
+  /*75% {
+    background: #ffd97d;
+  }*/
+  100% {
+    background: #ff9b85;
+  }
+}
+
+.bOpen:hover {
+	/*height: 60px;*/
+	transform: scale(1.3);
+}
+
+
+/*SAMPUL*/
+
+.sampul {
+	/*background-color: #ffffff;*/
+	/*background-color: lightgreen;*/
+}
+
+.divbg {
+	/*height: 650px;
+	background-image: url('../img/flower.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	z-index: 2;*/
+}
+
+.sampul img {
+	/*visibility: visible;*/
+}
+
+.smpText {
+	/*visibility: hidden;*/
+}
+
+.imgSampul {
+	/*position: absolute;*/
+	/*background-color: lightblue;*/
+	/*padding-top: 50px;*/
+	opacity: 0;
+	/*top: -100px;*/
+	/*transform: translate(-50px,0) rotate(15deg);*/
+	transition-duration: 1s;
+	transition-delay: 5s;
+}
+
+.imgSampul.animasi {
+	opacity: 1;
+	/*position: relative;*/
+	/*padding-top: 100px;*/
+}
+
+.sampul h1 {
+	/*padding-top: 200px;*/
+}
+
+.sampul h1:hover {
+	/*color: lightblue;
+	transition: color 2s;*/
+}
+
+.sampul h2 {
+	padding-top: 30px;
+	font-family: 'Brush Script Std';
+	font-size: 350%;
+	color: pink;
+}
+
+.sampul h1 , .sampul h2/*, .sampul h3, .sampul h5*/ {
+	/*font-family: 'Brush Script Std'*/
+	font-family: 'Brush Script Std';
+}
+
+/*MEMPELAI*/
+
+.mempelai {
+	/*background-color: #f7f2cc;*/
+}
+
+.mempelai img {
+	/*transform: scale(0.5);*/
+	/*width: 50%;
+	height: 50%;*/
+	/*padding-top: 40px;*/
+	border: 10px solid pink;
+	width: 60%;
+	height: 60%;
+}
+
+.mplKiri {
+	opacity: 0;
+	transform: translate(-50px,0) rotate(30deg);
+	transition: 1s;
+}
+
+.mplKanan {
+	opacity: 0;
+	transform: translate(50px,0) rotate(-30deg);
+	transition: 1s;
+}
+
+.mplKiri.mplMuncul, .mplKanan.mplMuncul {
+	opacity: 1;
+	transform: translate(0,0);
+}
+
+.mempelai h4 {
+	padding-top: 30px;
+}
+
+.mempelai img:hover {
+	/*visibility: visible;
+	width: 200px;*/
+	/*height: 200px;*/
+	
+	
+	/*webkit-transition:height 20% ease-in;
+	webkit-transition:width 20% ease-in;*/
+}
+
+/*animasi mempelai img*/
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+  /*transform: scale(1);*/
+}
+.bounce-leave-active {
+  animation: bounce-in 1s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/*ACARA*/
+.acara {
+	/*background-color: lightblue;*/
+}
+
+.acrText {
+	/*background-color: red;*/
+	opacity: 0;
+	transition-duration: 1s;
+	/*transition-delay: 5s;*/
+}
+
+.acrTgl {
+	opacity: 0;
+	transition: 1s;
+	transition-delay: 0.1s;
+}
+
+.acrAkad {
+	opacity: 0;
+	position: absolute;
+	left: -500px;
+	transition: 1s;
+	border-bottom: 2px solid pink;
+	transition-delay: 1s;
+}
+
+.acrResepsi {
+	opacity: 0;
+	position: absolute;
+	top: 100px;
+	left: 500px;
+	border-bottom: 2px solid pink;
+	transition: 1s;
+	transition-delay: 1s;
+}
+
+
+
+.acrText.animasi,.acrTgl.animasi,.acrAkad.animasi,.acrResepsi.animasi {
+	opacity: 1;
+	left: 0;
+
+	/*transition: visibility 1s;*/
+	/*-webkit-transition:visibility 2s ease-in;*/
+}
+
+.countDown {
+	/*width: 300px;*/
+	/*background-color: red;*/
+}
+
+.cdDetail {
+	opacity: 0;
+	min-width: 100px;
+	text-align: center;
+	float: left;	
+	margin: 10px;
+	background-color: lightgrey;
+	box-shadow:1px 1px 10px rgba(0,0,0,0.5);
+	transition: 0.5s;
+	transition-delay: 0.7s;
+}
+
+.cdDetail h1 {
+	border: 1px;
+}
+
+.cdDetail.animasi {
+	opacity: 1;
+}
+
+/* MAPS */
+
+.maps {
+	/*background-color: #f4d0bc;*/
+}
+
+.mapText {
+	opacity: 0;
+	position: absolute;
+	top: -200px;
+	transition: 1s;
+}
+
+.mapMap {
+	opacity: 0;
+	position: absolute;
+	left: -500px;
+	transition: 1s;
+}
+
+.mapBrcd {
+	opacity: 0;
+	position: absolute;
+	left: 500px;
+	transition: 1s;
+}
+
+.mapText.animasi {
+	position: relative;
+	top: 0;
+	opacity: 1;
+}
+
+.mapMap.animasi,.mapBrcd.animasi {
+	position: relative;
+	left: 0;
+	opacity: 1;
+}
+
+.maps img {
+	width: 75%;
+	height: 75%;
+	/*padding-top: 100px;*/
+}
+
+.maps iframe {
+	/*padding-top: 50px;*/
+}
+
+.bDown{
+	/*position: fixed;*/
+	bottom: 0px;
+	font-size: 40px;
+	text-align: bottom;
+}
+
+.bUp{
+	position: relative;
+	top: 500px;
+	left: 50px;
+	font-size: 40px;
+	/*left: 1280px*/
+}
+
+.bdMempelai,.bdAcara,.bdMaps,.bdProkes,.bdPenutup {
+	position: fixed;
+	top: 600px;
+	/*left: 1200px;*/
+	right: 20px;
+	visibility: hidden;
+	z-index: 1;
+}
+
+.bdMempelai.animasi,.bdAcara.animasi,.bdMaps.animasi,.bdProkes.animasi,.bdPenutup.animasi {
+	visibility: visible;
+}
+
+.sampul.navigasi {
+	background-color: lightgreen;
+}
+
+
+.pksImg {
+	opacity: 0;
+	position: absolute;
+	top: -200px;
+	transition: 1s;
+	/*width: 100px;
+	height: 100px;*/
+	/*background-color: salmon;*/
+}
+
+.pksImg img {
+	width: 200px;
+}
+
+.pksImg.animasi {
+	position: relative;
+	opacity: 1;
+	top: 0px;
+}
+
+
+/*.penerima h2 {
+	visibility: visible;
+   height: 20px;
+	-webkit-transition:height 2s ease-in;
+}
+
+h2:hover{
+	height: 100px;
+	visibility: hidden;
+	transition: visibility:visible 1s;
+}*/
+
+
+
+@font-face{
+	font-family: 'StrawberryCupcakes'
+	src : url('fonts/DancingScript-VariableFont_wght.ttf');
+}
+
+.penerima h1 {
+	/*font-family: 'StrawberryCupcakes';*/
+}
+
+
+/*h2:hover{
+	visibility: visible;
+	-webkit-transition:visibility 2s ease-in;
+}*/
+
+.jumbotron {
+	/*background-image: url('../img/img-header.jpg');*/
+	/*background-image: url('../img/cover1.jpg');*/
+	/*background-attachment: fixed;*/
+	/*background-size: cover;*/
+	/*background-position: 70px -220px;*/
+	/*color: #eaeaea;*/
+	/*overflow: hidden;*/
+}
+
+.jumbotron img {
+	width: 200px;
+	height: 200px;
+	border: 5px solid #eaeaea;
+	box-shadow:1px 1px 10px rgba(0,0,0,0.5);
+}
+
+.jumbotron h1, .jumbotron p {
+	text-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+}
+
+hr {
+	border: 10px solid pink; border-radius: 5px;
+}
+
+
+
+.pKiri, .pKanan {
+	opacity: 0;
+	transform: translate(-50px,0) rotate(15deg);
+	transition: 1s;
+}
+
+.pKanan {
+	transform: translate(50px, 0) rotate(-15deg);
+}
+
+.pKiri.pMuncul, .pKanan.pMuncul {
+	opacity: 1;
+	transform: translate(0,0);
+}
+
+.portfolio {
+	background-color: #eee;
+}
+
+.portfolio .thumbnail {
+	opacity: 0;
+	transform: translate(0,-40px);
+	transition: 0.5s;
+}
+
+.portfolio .thumbnail.muncul {
+	opacity: 1;
+	transform: translate(0,0);
+}
+
+.contact {
+	min-height: 800px;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 120px;
+	background-color: #333;
+	padding-top: 30px;
+}
+
+footer p {
+	color: #aaa;
+	font-size: 1em;
+}
