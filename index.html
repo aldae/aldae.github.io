@@ -4,231 +4,761 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Undangan Pernikahan Dewi & Alex</title>
+    <title>Undangan Pernikahan Tema 1</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
     <link rel="stylesheet" href="fontawesome/css/all.css"/>
+    <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"> -->
+
+    <style type="text/css">
+      html {
+        position: relative;
+        overflow-y: hidden;
+        overflow-x: hidden;
+      }
+
+      section {
+        /*position: absolute;*/
+        min-height: 670px;
+        /*height: 650px;*/
+        /*visibility: hidden;*/
+        /*position: absolute;*/
+      }
+
+      .container {
+        padding: 10px;
+      }
+
+      .penerima {
+        visibility: visible;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("img/bg-cover2.jpg"), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+        z-index: 2;
+        cursor: pointer;
+
+      }
+
+      .penerima h1, .penerima p, .penerima h5, .penerima h2 {
+        /*position: absolute;*/
+        /*top: 50%;
+        left: 50%;
+        font-size: 50px;*/
+        color: white;
+      }
+
+      @font-face {
+         font-family: "Great Vibes";
+         src: url('fonts/GreatVibes-Regular.OTF');
+         }
+
+      .penerima h2 {
+        font-family: Great Vibes;
+        font-size: 3em;
+        /*font-family: 'Brush Script Std';*/
+        /*font-family: 'Snell Roundhand, cursive';*/
+      }
+
+      .baground-penerima {
+        background-image: url('img/bg-cover2.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+
+      .bOpen {
+        color: white;
+        background-color: #FF6666;
+        border-radius: 20px 20px 20px 20px;
+        width: 13em;
+        height: 3em;
+        outline: none !important;
+        border-color: none;
+      }
+
+      .sampul {
+        /*background-color: #CECDCD;*/
+        background-image: url('img/bg-cover2.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+
+      .pembuka {
+        background-color: white;
+      }
+
+      .sampultxt {
+
+        opacity: 0;
+        transition: 5s;
+      }
+
+      .sampultxt.muncul {
+        opacity: 1;
+      }
+
+      .sampul h1 {
+        font-size: 5em;
+        outline: 20px;
+        outline-color: white;
+        font-style: bold;
+        font-family: Great Vibes;
+      }
+
+      .sampul h1,.sampul h2,.sampul h3 {
+        color: white;
+      }
+
+      .bounce-enter-active {
+          animation: bounce-in 2.5s;
+          /*transform: scale(1);*/
+        }
+
+      @keyframes bounce-in {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .pembuka .container {
+        background-image: url('img/bg-content3.jpg');
+        background-position: center;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        background-position: left;
+        /*filter: brightness(1.5);*/
+      }
+
+      .pembuka h2 {
+        font-family: Great Vibes;
+        font-style: bold;
+      } 
+
+      .pbkJudul {
+        opacity: 0;
+        /*position: absolute;*/
+        top:300px;
+        transition: 2s;
+      }
+
+      .pbkJudul.muncul {
+        /*position: relative;*/
+        opacity: 1;
+        top: 0px;
+      }
+
+      .pbkMempelai {
+        opacity: 0;
+        /*position: absolute;*/
+        top:300px;
+        transition: 2s;
+        transition-delay: 1s;
+      }
+
+      .pbkMempelai.muncul {
+        /*position: relative;*/
+        opacity: 1;
+        top: 0px;
+      }
+
+      .mplSosmed a {
+        background-color: white; 
+        /*background-color: #FF6666;*/
+        padding: 7px; 
+        border-radius: 20px 20px 20px 20px;
+        color: black;
+        text-decoration: none;
+      }
+
+      .cdDetail {
+        opacity: 0;
+        max-width: 80px;
+        text-align: center;
+        float: left;  
+        margin: 5px;
+        background-color: lightgrey;
+        box-shadow:1px 1px 10px rgba(0,0,0,0.5);
+        transition: 0.5s;
+        transition-delay: 2.5s;
+        border-radius: 5px 5px 5px 5px;
+      }
+
+      .cdDetail h1 {
+        border: 1px;
+      }
+
+      .cdDetail.animasi {
+        opacity: 1;
+      }
+
+      #play-audio {
+        display: block;
+        position: fixed;
+        top: 500px;
+        left: 20px;
+      }
+
+      .acara {
+        /*background-color: lightgrey;*/
+      }
+
+      .acara .container {
+        background-image: url('img/bg-content3.jpg');
+        /*background-position: right;*/
+        /*background-position: center;*/
+        /*margin-top: 20px;
+        margin-bottom: 10px;*/
+      }
+
+      .acaraJudul {
+        opacity: 0;
+        top: 300px;
+        transition: 2s;
+      }
+
+      .acaraJudul.animasi {
+        opacity: 1;
+        top: 0px;
+      }
+
+      .akadRsp {
+        opacity: 0;
+        /*background-color: white; margin-right: 4%;margin-left: 4%; margin-top: 10px;*/
+        /*border-radius: 20px 20px 20px 20px;*/
+        transition: 2s;
+      }
+
+      .akadRsp.animasi {
+        border-radius: 20px 20px 20px 20px;
+        opacity: 1;
+      }
+
+      .akadRsp h2 {
+        font-family: Great Vibes;
+        font-style: bold;
+        font-size: 3em; 
+      }
+
+      .akadRsp a {
+        /*position: absolute;*/
+        /*margin-top: 30px;*/
+        background-color: lightgrey;
+        color: black;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 10px 10px 10px 10px;
+      }
+
+      .akad, .resepsi {
+        background-color: white; margin-right: 4%;margin-left: 4%; margin-top: 10px;
+        border-radius: 20px 20px 20px 20px;
+        padding-bottom: 15px;
+        box-shadow:1px 1px 10px rgba(0,0,0,1);
+      }
+
+      .acaratxt {
+        opacity: 0;
+        top: 300px;
+        transition: 2s;
+        transition-delay: 1s;
+      }
+
+      .acaratxt.animasi {
+        opacity: 1;
+        top: 0px;
+      }
+
+      .mapMap {
+        opacity: 0;
+        position: absolute;
+        left: -500px;
+        transition: 1s;
+        /*transform: scale(70%);*/
+        transition-delay: 2s;
+      }
+
+      .bMap a {
+        /*width: 90%;
+        height: 90%;*/
+        background-color: white;
+        color: black;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 10px 10px 10px 10px;
+
+      }
+
+      .mapBrcd {
+        opacity: 0;
+        position: absolute;
+        left: 500px;
+        transition: 1s;
+        transition-delay: 2.5s;
+      }
+
+      .mapMap.animasi,.mapBrcd.animasi {
+        position: relative;
+        left: 0;
+        opacity: 1;
+      }
+
+      .prokes {
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+      .prokes .container {
+        background-color: lightgrey;
+        /*background-image: url('img/bg-content4.jpg');*/
+        /*min-height: 670px;*/
+      }
+
+      .prokesJudul {
+        opacity: 0;
+        top: 300px;
+        transition: 2s;
+      }
+
+      .prokesJudul.animasi {
+        opacity: 1;
+        top: 0px;
+      }
+
+      .pksImg {
+        opacity: 0;
+        position: absolute;
+        top: 600px;
+        transition: 1s;
+        transition-delay: 1s;
+        /*width: 100px;
+        height: 100px;*/
+        /*background-color: salmon;*/
+      }
+
+      .pksImg img {
+        width: 50%;
+      }
+
+      .pksImg.animasi {
+        position: relative;
+        opacity: 1;
+        top: 0px;
+        margin: 20px;
+      }
+
+      .penutup {
+        /*background-color: lightgrey;*/
+      }
+
+      .penutup .container {
+        background-image: url('img/bg-content3.jpg');
+        background-position: right;
+        min-height: 670px;
+      }
+
+      .penutupCnt {
+        background-color: white;
+        position: absolute;
+        opacity: 0;
+        top: 600px;
+        transition: 2s;
+        border-radius: 20px 20px 20px 20px;
+        padding-bottom: 15px;
+        box-shadow:1px 1px 10px rgba(0,0,0,2);
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      .penutup .row {
+        margin-left: 2%;
+        margin-right: 2%;
+      }
+
+      .penutupCnt.animasi {
+        position: relative;
+        
+        opacity: 1;
+        top: 0px;
+      }
+
+      .storyCnt {
+        background-color: lightgrey;
+        position: absolute;
+        opacity: 0;
+        top: 600px;
+        transition: 2s;
+        border-radius: 20px 20px 20px 20px;
+        padding-bottom: 15px;
+        box-shadow:1px 1px 10px rgba(0,0,0,2);
+      }
+
+      .storyCnt.animasi {
+        position: relative;
+        /*margin-left: 20px;*/
+        /*margin-right: 20px;*/
+        opacity: 1;
+        top: 0px;
+      }
+
+      .storyCnt h2 {
+        font-family: Great Vibes;
+        font-style: bold;
+        font-size: 3em;
+      }
+
+      .storyImg {
+        margin: 10px;
+        /*position: absolute;*/
+        opacity: 0;
+        /*top: 600px;*/
+        transition: 1s;
+      }
+/*
+      .storyImg .pksImg {
+        margin: 10px;
+      }*/
+
+      .storyImg.animasi {
+        opacity: 1;
+      }
+
+      /*.moment .container {
+        background-image: url('img/bg-content3.jpg');
+        background-position: bottom;
+        min-height: 670px;
+        margin-bottom: 10px;
+      }*/
+
+      .story .ourStory {
+        margin: 15px;
+        background-color: white;
+        /*position: absolute;*/
+        /*opacity: 0;*/
+        /*top: 600px;*/
+        /*transition: 2s;*/
+        border-radius: 20px 20px 20px 20px;
+        padding-bottom: 15px;
+        box-shadow:1px 1px 10px rgba(0,0,0,2);
+      }
+
+      .gift .container {
+        margin-top: 10px;
+        background-image: url('img/bg-content3.jpg');
+        /*background-position: bottom;*/
+        min-height: 670px;
+      }
+
+      /*.gift .row {
+        margin: 30px;
+      }*/
+
+      .gift .giftJudul {
+        margin: 30px;
+      }
+
+      .gift .giftRek {
+        margin: 30px;
+        background-color: white;
+        /*position: absolute;*/
+        /*opacity: 0;*/
+        /*top: 600px;*/
+        /*transition: 2s;*/
+        border-radius: 20px 20px 20px 20px;
+        padding-bottom: 15px;
+        box-shadow:1px 1px 10px rgba(0,0,0,2);
+      }
+
+      .gift button {
+        /*background-color: lightgrey;*/
+        /*color: white;*/
+        border-radius: 20px 20px 20px 20px;
+        padding: 5px;
+      }
+
+      .ucapanDoa .container {
+        margin-top: 10px;
+        background-image: url('img/bg-content3.jpg');
+        background-position: right;
+        min-height: 670px;
+      }
+
+      .ucapanDoa i {
+        width: 50px;
+        background: 
+      }
+
+      .navigasi {
+        visibility: hidden;
+        position: fixed;
+        bottom: 0px;
+        background-color: #E0E0E0;
+      }
+
+      .navigasi.container {
+        margin-top: 0;
+      }
+
+      .navigasi.animasi {
+        visibility: visible;
+      }
+
+      /*.play-audio {
+        width: 50px; height: 50px; z-index: 99999;
+        visibility: hidden;
+      }
+
+      .play-audio.animasi {
+        visibility: visible;
+      }*/
+    </style>
+
+    <script type="text/javascript">
+
+      countDown();
+      function countDown(){
+        // Set the date we're counting down to
+        var countDownDate = new Date("Jul 29, 2022 10:00:00").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+          // Get today's date and time
+          var now = new Date().getTime();
+            
+          // Find the distance between now and the count down date
+          var distance = countDownDate - now;
+            
+          // Time calculations for days, hours, minutes and seconds
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          document.getElementById("days").innerHTML = days;
+          document.getElementById("hours").innerHTML = hours;
+          document.getElementById("minutes").innerHTML = minutes;
+          document.getElementById("seconds").innerHTML = seconds;
+            
+          // If the count down is over, write some text 
+          if (distance < 0) {
+            clearInterval(x);
+            // document.getElementById("demo").innerHTML = "EXPIRED";
+            document.getElementById("days").innerHTML = "-";
+          document.getElementById("hours").innerHTML = "-";
+          document.getElementById("minutes").innerHTML = "-";
+          document.getElementById("seconds").innerHTML = "-";
+          }
+        }, 1000);
+      }
+    </script>
 
   </head>
   <body>
-  
-  <!-- <button class="bUp">Up</button> -->
+
+    <audio id="bg-audio">
+        <source src="audio/audio.mp3" type="audio/mpeg">
+      </audio>
+      <button class="fas fa-solid fa-pause play-audio" id="play-audio" style=""></button>
 
     <!-- Penerima -->
     <section class="penerima" id="penerima">
-      <div class="divPenerima">
+      <div class="divPenerima text-center">
         <div class="container">
           <div class="row">
-            <div class="col-sm-12 text-center">
-              <!-- <h2 class="text-center">Penerima</h2> -->
-              <h2 class="pt-5">Weeding Invitation</h2>
-              <!-- <h4>Kamis, 29 Juli 2021</h4> -->
-              <h1>Dewi & Alex</h1>
-
-              <button class="bOpen btn btn-primary">Buka</button>
-
-              <p>Alex</p>
-              <p>Sukoharjo</p>
-              <!-- <a href="">Cek</a> -->
-              <!-- <a href="#" class="bOpen badge badge-warning text-center">Open</a> -->
+            <div class="col-sm-12">
+              <h1 class="pt-5">Weeding Invitation</h1>
+              <img src="img/icon-cover.jpg" height="200px" width="200px" class="rounded-circle mt-2">
+            </div>
+            <div class="col-sm-12 text-center mt-3">
               
-              <!-- <a class="fas fa-chevron-down bDown"></a> -->
+              <h2>Aku & Kamu</h2>
+
+              <button class="bOpen mb-3"><i class="fas fa-solid fa-envelope-open"></i> Buka Undangan</button>
+
+              <p>Kpd. Bpk/Ibu/Saudara/i</p>
+              <h5>Penerima</h5>
+              <h5>Jakarta</h5>
             </div>
           </div>
         </div> 
       </div>
     </section>
+
+    <section class="baground-penerima">
+      
+    </section>
     
     <!-- End of Penerima -->
 
     <!-- Sampul -->
-    <section class="sampul" id="sampul">
-      <div class="divbg">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm text-center pt-5">
-            <img src="img/segienam.png" class="imgSampul" height="250">
-          </div>
-          <div class="col-sm-12 text-center">
-            <!-- <h1>Dewi & Alex</h1> -->
-            <div class="smpText">
-            <h2>Kamis, 29 Juli 2021</h2>
-            <h3>Assalamu’alaikum Warahmatullahi Wabarakatuh</h3>
-            <h5>Maha Suci Allah SWT, Yang telah menciptakan makhluknya berpasang - pasangan. </h5> 
-            <h5>Ya Allah perkenankanlah dan Ridhoi lah kami menikahkan putra putri kami :</h5>
+    <section class="sampul text-center" id="sampul">
+    <table style="min-height: 670px; width: 100%">
+      <tbody>
+        <tr>
+          <td>
+            <div class="row sampultxt">
+              <div class="col-sm-12 text-center">
+                  <h3>Pernikahan Dari</h3>
+              </div>
+              <div class="col-sm-12 text-center mt-5">
+                  <h1>Aku dan Kamu</h1>
+              </div>
+              <div class="col-sm-12 text-center mt-5">
+                  <h2>Sabtu, 27 Agustus 2022</h2>
+              </div>
             </div>
-          </div>
-          
-        </div>
-
-        <div class="row">
-          <div class="col-sm-12 text-right">
-            <!-- <a href="#mempelai" class="fas fa-chevron-down bDown"></a> -->
-            <!-- <a href="#acara" class="fas fa-chevron-down bDown bdMempelai"></a> -->
-            <a href="#mempelai" class="fas fa-chevron-down bdMempelai bDown"></a>
-            <a href="#acara" class=" fas fa-chevron-down bdAcara bDown"></a>
-            <a href="#maps" class="fas fa-chevron-down bdMaps bDown"></a>
-            <a href="#prokes" class="fas fa-chevron-down bdProkes bDown"></a>
-            <a href="#penutup" class="fas fa-chevron-down bdPenutup bDown"></a>
-          </div>
-        </div>
-      </div>
-      </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
     </section>
     
     <!-- End Of Sampul -->
 
-    <!-- Mempelai -->
-    <section class="mempelai" id="mempelai">
-      <!-- <a href="#sampul" class="bUp">Up</a> -->
+    <!-- Pembuka -->
+    <section class="pembuka" id="pembuka">
       <div class="container">
         <div class="row">
-          <div class="col-sm-12">
-            <hr>
+          <hr>
+          <div class="col-sm-12 text-center pbkJudul">
+            
+            <img height="90px" src="img/bismillah.png">
+          </div>
+
+          <div class="col-sm-8 offset-sm-2 text-center pbkJudul">
+            <h3>Assalamua’laikum Warahmatullaahi Wabarakaatuh</h3>
+            <p>Maha suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan. Dengan memohon ridho dan rahmat Allah SWT, kami bermaksud akan menyelenggarakan acara pernikahan kami :</p>
+          </div>  
+
+          <div class="col-sm-12 pbkMempelai">
             <h2 class="text-center">Mempelai</h2>
           </div>
         </div>
         <div class="row">
-               
           
-          <div class="col-sm-6 text-center pt-3">
-            <!-- <p>Perempuan</p> -->
-            <img src="img/mplWanita.png" class="rounded-circle">
-            <div class="mplKiri">
-            <h4>Tri Dewi Purwanti, A,Md.Kep</h4>
-            <h5>Putri ketiga dari Bp Samidi Sapto Wiyono dan Ibu Parsi</h5>
-            <h5>Bangsri Gede RT 02 - RW 08, Kriwen, Sukoharjo</h5>
+          <div class="col-sm-6 text-center mt-3 pbkMempelai">
+            <img src="img/default.jpg" class="rounded-circle">
+            <div class="mplKiri mt-2">
+            <h2>Aku, A,Md.Kep</h2>
+            <h5>Putri ketiga dari Bp ABC dan Ibu DEF</h5>
+            <h5>Tangerang, Banten, DKI Jakarta</h5>
+            <h5 class="mplSosmed"> <a href="instagram.com"> @aku</a></h5>
             </div>
           </div>
-          <div class="col-sm-6 text-center pt-3">
-            <!-- <p>Laki - laki</p> -->
-            <img src="img/mplPria.png" class="rounded-circle">
-            <div class="mplKanan">
-              <h4>Alex Darmawan, S.Kom</h4>
-              <h5>Putra kedua dari Bp Wiradi dan Ibu Sri Supadmi</h5>
-              <h5>Bangsri Gede RT 01 - RW 09, Kriwen, Sukoharjo</h5>
+          <div class="col-sm-6 text-center mt-3 pbkMempelai">
+            <img src="img/default.jpg" class="rounded-circle">
+            <div class="mplKanan mt-2">
+              <h2>Kamu, S.Kom</h2>
+              <h5>Putra kedua dari Bp FGH dan Ibu JKL</h5>
+              <h5>Tangerang, Banten, DKI Jakarta</h5>
+              <h5 class="mplSosmed"><a href="instagram.com">@kamu</a></h5>
             </div>
           </div>
+
+          <div class="col-sm-12 text-center mt-3 pbkMempelai">
+                  <h1>Sabtu, 27 Agustus 2022</h1>
+          </div>
+
+          <div class="col-md-6 offset-md-3 countDown text-center">
+              <div class="col-sm-3 cdDetail" style="margin-left: 14%">
+                <h5 id="days"></h5>
+                <h5>Hari</h5>
+              </div>
+              <div class="col-sm-3 cdDetail thumbnail">
+                <h5 id="hours"></h5>
+                <h5>Jam</h5>
+              </div>
+              <div class="col-sm-3 cdDetail thumbnail">
+                <h5 id="minutes"></h5>
+                <h5>Menit</h5>
+              </div>
+              <div class="col-sm-3 cdDetail thumbnail">
+                <h5 id="seconds"></h5>
+                <h5>Detik</h5>
+              </div>
+            </div>
+              
+            <!-- </div> -->
         </div>
 
         <div class="row">
-          <div class="col-sm-6">
-            <a href="#acara" class="fas fa-chevron-down bDown"></a>
-          </div>
-          <div class="col-sm-6 text-right">
-            <!-- <a href="#acara" class="fas fa-chevron-down bDown"></a> -->
-          </div>
+            
         </div>
       
       </div>
 
     </section>
     
-    <!-- End Of Mempelai -->
+    <!-- End Of Pembuka -->
 
     <!-- Acara -->
     <section class="acara" id="acara">
       <div class="container">
 
-        <div class="row">
+        <div class="row acaraJudul">
           <div class="col-sm-12">
-            <hr>
+            <!-- <hr> -->
             <h2 class="text-center">Acara</h2>
           </div>
         </div>
 
-        <div class="row">
+        <div class="row acaraJudul">
           <div class="col-sm-12 text-center pt-2">
             <h3 class="acrText">Yang insya Allah akan diselenggarakan pada :</h3>
           </div>
         </div>
 
-          <div class="row pt-3">
-            <div class="col-sm-6 text-right">
-              <img src="img/tanggal.png" height="250px" class="acrTgl">
-            </div>
+        <div class="row pt-3 text-center akadRsp mb-3">
+          <div class="col-sm-5 mt-2 mb-3 akad">
+            <h2 class="mt-2">Akad Nikah</h2>
+            <p> <i class="fas fa-solid fa-calendar"></i> Jumat, 26 Agustus 2022</p>
+            <p><i class="fas fa-solid fa-clock"></i> 10.00 - 11.00</p>
 
-            <div class="col-sm-6 pt-4">
-                <div class="acrAkad mt-2">
-                  <h5>AKAD NIKAH</h5>
-                  <h4>07.00 WIB</h4>
-                </div>
-                
-                <div class="acrResepsi mt-2">
-                  <h5>RESEPSI</h5>
-                  <h4>10.00 WIB</h4>
-                </div>
-            </div>
+            <h3>Lokasi / Tempat Acara</h3>
+
+            <h6 class="mb-3">Rumah Panggung Darusalam Palembang</h6>
+
+            <a href="www.youtube.com"><i class="fas fa-youtube"></i> Live Streaming</a>
+            
           </div>
+          <div class="col-sm-5 mt-2 mb-3 resepsi">
+            <h2 class="mt-2">Akad Nikah</h2>
+            <p> <i class="fas fa-solid fa-calendar"></i> Jumat, 26 Agustus 2022</p>
+            <p><i class="fas fa-solid fa-clock"></i> 10.00 - 11.00</p>
 
-          <div class="row pt-4">
-            <div class="col-md-6 offset-md-3 countDown">
-              <div class="cdDetail">
-                <h1 id="days"></h1>
-                <h2>Hari</h2>
-              </div>
-              <div class="cdDetail thumbnail">
-                <h1 id="hours"></h1>
-                <h2>Jam</h2>
-              </div>
-              <div class="cdDetail thumbnail">
-                <h1 id="minutes"></h1>
-                <h2>Menit</h2>
-              </div>
-              <div class="cdDetail thumbnail">
-                <h1 id="seconds"></h1>
-                <h2>Detik</h2>
-              </div>
-            </div>
-          </div>
+            <h3>Lokasi / Tempat Acara</h3>
 
-        </div>
-        
-        <!-- <div class="row">
-          <div class="col-sm-6">
-            <a href="#maps" class="fas fa-chevron-down bDown"></a>
-          </div>
-          <div class="col-sm-6 text-right navigasi">
-            <a href="#maps" class="fas fa-chevron-down bDown"></a>
-          </div>
-        </div> -->
+            <h6 class="mb-3">Rumah Panggung Darusalam Palembang</h6>
 
-      <!-- </div> -->
-    </section>
-    
-    <!-- End Of Acara -->
-
-    <!-- Maps -->
-    <section class="maps" id="maps">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-sm-12">
-            <hr>
-            <h2 class="text-center">Lokasi</h2>
+            <a href="www.youtube.com"><i class="fas fa-youtube"></i> Live Streaming</a>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="mapText text-center">
-            <h3>Bangsri Gede, RT 02 - RW 08,</h3>
-            <h3>Kriwen, Sukoharjo</h3>
-            </div>
-          </div>
+        <div class="col-sm-8 offset-sm-2 text-center acaratxt mt-2">
+          <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila bapak / ibu / saudara / i berkenan hadir untuk memberikan doa restu kepada mempelai</p>
+          <h4>Kami Yang Berbahagia</h4>
+          <h5>Aku dan Kamu</h5>
+          <h4>Beserta keluarga besar kedua mempelai</h4>
         </div>
 
-        <div class="row">
-          <div class="col-sm-8 pt-4">
-            <div class="mapMap">
-            <div class="text-center">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.9555741958184!2d110.78686731477738!3d-7.687916994457884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDEnMTYuNSJTIDExMMKwNDcnMjAuNiJF!5e0!3m2!1sid!2sid!4v1625116864851!5m2!1sid!2sid" width="700" height="350" style="border:1;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            <div class="text-center">
-              <!-- <button class="btn btn-info" target="_blank" href="www.google.com">Go to Maps</button> -->
+        <div class="row" style="margin: 1%">
+          <div class="col-sm-7 pt-4">
+            <div class="mapMap text-center">
+            <!-- <div class="text-center"> -->
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.9555741958184!2d110.78686731477738!3d-7.687916994457884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDEnMTYuNSJTIDExMMKwNDcnMjAuNiJF!5e0!3m2!1sid!2sid!4v1625116864851!5m2!1sid!2sid" width="100%" height="350" style="border:1;" allowfullscreen="" loading="lazy"></iframe>
+            <!-- </div> -->
+            <div class="text-center bMap mt-2">
               <a href="https://goo.gl/maps/M51m4kERHA1hnSB9A" target="_blank">Go to Maps</a>
             </div>
             </div>
@@ -236,82 +766,72 @@
 
           <div class="col-sm-4 pt-4">
             <div class="text-center mapBrcd">
-              <img src="img/barcode_locn.png">
+              <img src="img/barcode_locn.png" width="70%" height="70%">
               <h4>Scan Barcode untuk lokasi</h4>
             </div>
           </div>
         </div>
 
-      </div>
-      
+        </div>
     </section>
     
-    <!-- End Of Maps -->
+    <!-- End Of Acara -->
 
     <!-- Protokes -->
     <section class="prokes" id="prokes"> 
-    <!--  style="background-image: url('img/prokes.jpg');background-position: center; background-size: 500px 500px; background-repeat: no-repeat;" -->
 
       <div class="container">
         
-        <div class="row">
-          <div class="col-sm-12">
-            <hr>
-            <h2 class="text-center">Protokol Kesehatan</h2>
+        <div class="row prokesJudul">
+          <div class="col-sm-12 text-center">
+            <!-- <hr> -->
+            <h2>Protokol Kesehatan</h2>
+            <h5>Dikarenakan sedang dalam masa pandemi, tanpa mengurangi rasa hormat, diharapkan seluruh tamu dapat mengikuti protokol kesehatan yang dianjurkan oleh pemerintah</h5>
           </div>
         </div>
         <div class="row">
 
-        <div class="row pt-5">
+        <div class="row pt-2">
           <div class="col-sm-4 text-center">
-            <div class="thumbnail pksImg">
+            <div class="img-thumbnail pksImg">
               <img src="img/wash-your-hands.png">
               <h5>Mencuci Tangan</h5>
             </div>
           </div>
 
           <div class="col-sm-4 text-center">
-            <div class="thumbnail pksImg">
+            <div class="img-thumbnail pksImg">
               <img src="img/mask.png">
               <h5>Memakai Masker</h5>
             </div>
           </div>
 
           <div class="col-sm-4 text-center">
-            <div class="thumbnail pksImg">
+            <div class="img-thumbnail pksImg">
               <img src="img/thermometer.png">
               <h5>Cek Suhu Badan</h5>
             </div>
           </div>
 
           <div class="col-sm-4 text-center">
-            <div class="thumbnail pksImg">
+            <div class="img-thumbnail pksImg">
               <img src="img/social-distancing.png">
               <h5>Menjaga Jarak</h5>
             </div>
           </div>
 
           <div class="col-sm-4 text-center">
-            <div class="thumbnail pksImg">
+            <div class="img-thumbnail pksImg">
               <img src="img/no-handshake.png">
               <h5>Tidak Berjabat Tangan</h5>
             </div>
           </div>
 
           <div class="col-sm-4 text-center">
-            <div class="thumbnail pksImg">
+            <div class="img-thumbnail pksImg">
               <img src="img/handwash.png">
               <h5>Memakai Handzainitizer</h5>
             </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <!-- <a href="#acara" class="fas fa-chevron-down bDown"></a> -->
-          </div>
-          <div class="col-sm-6 text-right navigasi">
-            <!-- <a href="#penutup" class="fas fa-chevron-down bDown"></a> -->
           </div>
         </div>
       </div>
@@ -322,182 +842,525 @@
     <!-- Penutup -->
     <section class="penutup" id="penutup">
       <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <hr>
-            <h2 class="text-center">Penutup</h2>
+        <div class="penutupCnt">
+          <div class="row mt-5">
+            <div class="col-sm-12">
+              <!-- <hr> -->
+              <h2 class="text-center">Penutup</h2>
+            </div>
           </div>
+          <div class="row">
+
+          <div class="row mt-3">
+            <div class="col-sm-12 text-center">
+              <h5> “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah)bagi kaum yang berpikir”</h5>
+
+              <p class="mt-5">Untuk mengikuti sunnah Rasul-Mu Membentuk Keluarga yang Sakinah, Mawaddah dan Warrohmah Taat Kepada-Mu berbakti kepada kedua orang tuanya dan semoga mendapatkan keturunan yang sholeh dan sholihah</p>
+              <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila bapak / ibu / saudara / i berkenan hadir untuk memberikan doa restu kepada mempelai</p>
+              <h3>Wassalamu’alaikum Warahmatulahi Wabarakatuh</h3> <br>
+              <p>Kami yang berbahagia</p>
+            </div>
+
+            <div class="col-sm-6 text-center">
+              <h5>Kel. Bp STU</h5>
+              <h5>XYZ</h5>
+            </div>
+            <div class="col-sm-6 text-center">
+              <h5>Kel. Bp ABC</h5>
+              <h5>Ibu EFG</h5>
+            </div>
+            <div class="col-sm-12 text-center">
+              <h3>Aku & Kamu</h3>
+            </div>
         </div>
-        <div class="row">
 
-        <div class="row">
-          <div class="col-sm-12 text-center">
-            <h5> “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah)bagi kaum yang berpikir”</h5>
-
-            <p>Untuk mengikuti sunnah Rasul-Mu Membentuk Keluarga yang Sakinah, Mawaddah dan Warrohmah Taat Kepada-Mu berbakti kepada kedua orang tuanya dan semoga mendapatkan keturunan yang sholeh dan sholihah</p>
-            <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila bapak / ibu / saudara / i berkenan hadir untuk memberikan doa restu kepada mempelai</p>
-            <h3>Wassalamu’alaikum Warahmatulahi Wabarakatuh</h3> <br>
-            <p>Kami yang berbahagia</p>
-          </div>
-
-          <div class="col-sm-6 text-center">
-            <h5>Kel. Bp Samidi Sapto Wiyono</h5>
-            <h5>Ibu Parsi</h5>
-          </div>
-          <div class="col-sm-6 text-center">
-            <h5>Kel. Bp Wiradi</h5>
-            <h5>Ibu Sri Supadmi</h5>
-          </div>
-          <div class="col-sm-12 text-center">
-            <h3>Dewi & Alex</h3>
-          </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-6">
-            <a href="#acara" class="fas fa-chevron-down bDown"></a>
-          </div>
-      </div>
-
-      </div>
+        </div>
+        </div>
+        
+    </div>
     </section>
 
     <!-- End Of Penutup -->
 
-    <!-- About -->
-    <!-- <section class="about" id="about">
+    <!-- Our Story -->
+
+    <section class="story" id="story">
       <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="text-center">About</h2>
-            <hr>
+        <div class="storyCnt mt-2">
+          <div class="row text-center">
+            <div class="col-sm-12 mt-5">
+              <h2>Memorable Moment</h2>
+            </div>
           </div>
+
+            <div class="row storyImg">
+              <div class="col-sm-6 text-center">
+                <div class="img-thumbnail pksImg">
+                  <img src="img/wash-your-hands.png">
+                </div>
+              </div>
+
+              <div class="col-sm-6 text-center">
+                <div class="img-thumbnail pksImg">
+                  <img src="img/mask.png">
+                </div>
+              </div>
+            </div>
+            
+            <div class="row storyImg">
+              <div class="col-sm-6 text-center">
+                <div class="img-thumbnail pksImg">
+                  <img src="img/thermometer.png">
+                </div>
+              </div>
+
+              <div class="col-sm-6 text-center">
+                <div class="img-thumbnail pksImg">
+                  <img src="img/social-distancing.png">
+                </div>
+              </div>
+            </div>
+            
+            <div class="row storyImg">
+              <div class="col-sm-6 text-center">
+                <div class="img-thumbnail pksImg">
+                  <img src="img/no-handshake.png">
+                </div>
+              </div>
+
+              <div class="col-sm-6 text-center">
+                <div class="img-thumbnail pksImg">
+                  <img src="img/handwash.png">
+                </div>
+              </div>
+            </div>
+
+            <div class="row storyImg">
+              <div class="col-sm-12 text-center">
+                <iframe width="100%" height="350" 
+                src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                </iframe>
+              </div>
+            </div>
+
+            <div class="row ourStory">
+            <div class="col-sm-12 text-center">
+              <h4>Our Story</h4>
+              <p>Keluarga & Sahabat,</p>
+              <p>Tidak ada yang spesial dalam cerita kami.
+                Tapi kami sangat spesial untuk satu sama lain
+                Awal pertama kali kami bertemu di salah satu perusahaan BUMN hanya sebagai rekan kerja, dan saling bercerita satu sama lain kemudiaan tanggal 28 Maret 2018 Kami mulai dekat.</p>
+                <p>Keluarga & Sahabat,</p>
+              <p>Tidak ada yang spesial dalam cerita kami.
+                Tapi kami sangat spesial untuk satu sama lain
+                Awal pertama kali kami bertemu di salah satu perusahaan BUMN hanya sebagai rekan kerja, dan saling bercerita satu sama lain kemudiaan tanggal 28 Maret 2018 Kami mulai dekat.</p>
+              <p>Keluarga & Sahabat,</p>
+              <p>Tidak ada yang spesial dalam cerita kami.
+                Tapi kami sangat spesial untuk satu sama lain
+                Awal pertama kali kami bertemu di salah satu perusahaan BUMN hanya sebagai rekan kerja, dan saling bercerita satu sama lain kemudiaan tanggal 28 Maret 2018 Kami mulai dekat.</p>
+              <p>Keluarga & Sahabat,</p>
+              <p>Tidak ada yang spesial dalam cerita kami.
+                Tapi kami sangat spesial untuk satu sama lain
+                Awal pertama kali kami bertemu di salah satu perusahaan BUMN hanya sebagai rekan kerja, dan saling bercerita satu sama lain kemudiaan tanggal 28 Maret 2018 Kami mulai dekat.</p>
+              <p>Keluarga & Sahabat,</p>
+              <p>Tidak ada yang spesial dalam cerita kami.
+                Tapi kami sangat spesial untuk satu sama lain
+                Awal pertama kali kami bertemu di salah satu perusahaan BUMN hanya sebagai rekan kerja, dan saling bercerita satu sama lain kemudiaan tanggal 28 Maret 2018 Kami mulai dekat.</p>
+            </div>
         </div>
 
-        <div class="row">
-         <div class="col-sm-5 col-sm-offset-1">
-           <p class="pKiri">Using color to add meaning to a table row or individual cell only provides a visual indication, which will not be conveyed to users of assistive technologies – such as screen readers. Ensure that information denoted by the color is either obvious from the content itself (the visible text in the relevant table row/cell), or is included through alternative means, such as additional text hidden with the .sr-only class.</p>
-         </div> 
-         <div class="col-sm-5">
-           <p class="pKanan">Using color to add meaning to a table row or individual cell only provides a visual indication, which will not be conveyed to users of assistive technologies – such as screen readers. Ensure that information denoted by the color is either obvious from the content itself (the visible text in the relevant table row/cell), or is included through alternative means, such as additional text hidden with the .sr-only class.</p>
-         </div>
         </div>
 
       </div>
-    </section> -->
-    <!-- Akhir About -->
+    </section>
 
-    <!-- portfolio -->
-    <!-- <section class="portfolio" id="portfolio">
+    <!-- End Our Story -->
+
+    <!-- Gift -->
+
+    <section class="gift" id="gift">
       <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <h2 class="text-center">Portfolio</h2>
-            <hr>
+        <div class="row giftJudul">
+          <div class="col-sm-12 text-center">
+            <h4>Wedding Gift</h4>
+              <p>Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi kado secara cashless.</p>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-sm-4">
-            <a href="" class="thumbnail">
-            <img src="img/alex.jpg">
-            </a>
-          </div>
-          <div class="col-sm-4">
-            <a href="" class="thumbnail">
-            <img src="img/alex.jpg">
-            </a>
-          </div>
-          <div class="col-sm-4">
-            <a href="" class="thumbnail">
-            <img src="img/alex.jpg">
-            </a>
-          </div>
-          <div class="col-sm-4">
-            <a href="" class="thumbnail">
-            <img src="img/alex.jpg">
-            </a>
-          </div>
-          <div class="col-sm-4">
-            <a href="" class="thumbnail">
-            <img src="img/alex.jpg">
-            </a>
-          </div>
-          <div class="col-sm-4">
-            <a href="" class="thumbnail">
-            <img src="img/alex.jpg">
-            </a>
-          </div>
+        
+        <div class="row giftRek">
+            <div class="col-sm-12 text-center">
+              
+              <img src="img/logo-bca.png" width="300" height="150">
+              <h4>12345678</h4>
+              <h4>a/n Aku</h4>
+              <button class="" onclick="copyText1()" id="rek1" name="rek1" value="12345678">Salin Nomor Rekening</button>
+            </div>
         </div>
-
+        <div class="row giftRek">
+            <div class="col-sm-12 text-center">
+              <img src="img/logo-bca.png" width="300" height="150">
+              <h4>12345678</h4>
+              <h4>a/n Aku</h4>
+              <button class="" onclick="copyText2()" id="rek2" name="rek2" value="9876432">Salin Nomor Rekening</button>
+            </div>
+        </div>
       </div>
-    </section> -->
+    </section>
 
-    <!-- contact -->
-   <!--  <section class="contact" id="contact">
+    <!-- End Gift -->
+
+    <!-- Gift -->
+
+    <section class="ucapanDoa" id="ucapanDoa">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 text-center">
-            <h2>Contact</h2>
-            <hr>
+            <h4>Kirim Ucapan & Doa</h4>
           </div>
         </div>
+              
 
         <div class="row">
-          <div class="col-sm-8 col-sm-offset-2">
-            <form >
+          <div class="col-sm-12">
+            <form class="form-group" action="">
               <div class="form-group">
-                <label for="nama">Nama</label>
-                <input type="text" id="nama" class="form-control" placeholder="masukan nama">
-              </div>
-              <div class="form-group">
-                <label for="email">Emali</label>
-                <input type="email" id="email" class="form-control" placeholder="masukan email">
+                <input class="form-control" type="text" name="nama" id="nama" placeholder="Masukan Nama">
               </div>
               <div class="form-group">
-                <label for="telp">No Telepon</label>
-                <input type="tel" id="telp" class="form-control" placeholder="masukan no telepon">
+                <textarea class="form-control" name="ucapan" id="ucapan" placeholder="Ucapan dan Doa"></textarea>
               </div>
-              <select class="form-control">
-                <option>-- pilih kategori --</option>
-                <option>Web Design</option>
-                <option>Web Development</option>
-              </select>
-              <div class="form-group">
-                <label for="pesan">Pesan</label>
-                <textarea class="form-control" rows="10" placeholder="masukan pesan"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Kirim Pesan</button>
-
-              </div>
+              
+              
+              <button class="btn btn-primary" type="submit">Kirim</button>
             </form>
-          </div>
+            </div>
+        </div>
+
+        <div class="ucapan" style="height: 200px; overflow-y: scroll; background-color: white; width: 100%">
+          <table width="100%" class="table">
+            <body>
+              <tr style="padding: 0;">
+                <td width="15%" style="vertical-align: top;padding: 0;"><img src="img/comment-dots-solid.svg" width="50px"></td>
+                <td width="75%" style="vertical-align: top;text-align: left;padding: 0;">
+                  <h5 style="margin-bottom: 0">Nama</h5>
+                  <p>konten</p>
+                </td>
+                <td width="10%" style="vertical-align: top;padding: 0;"><p>08/06/2022</p></td>
+              </tr>
+              <tr>
+                <td width="15%" style="vertical-align: top;padding: 0;"><img src="img/comment-dots-solid.svg" width="50px"></td>
+                <td width="75%" style="vertical-align: top;padding: 0;text-align: left;">
+                  <h5 style="margin-bottom: 0">Nama</h5>
+                  <p>konten</p>
+                </td>
+                <td width="10%" style="vertical-align: top;padding: 0;"><p>08/06/2022</p></td>
+              </tr>
+              <tr>
+                <td width="15%" style="vertical-align: top;padding: 0;"><img src="img/comment-dots-solid.svg" width="50px"></td>
+                <td width="75%" style="vertical-align: top;padding: 0;text-align: left;">
+                  <h5 style="margin-bottom: 0">Nama</h5>
+                  <p>konten</p>
+                </td>
+                <td width="10%" style="vertical-align: top;padding: 0;"><p>08/06/2022</p></td>
+              </tr>
+              <tr>
+                <td width="15%" style="vertical-align: top;padding: 0;"><img src="img/comment-dots-solid.svg" width="50px"></td>
+                <td width="75%" style="vertical-align: top;padding: 0;text-align: left;">
+                  <h5 style="margin-bottom: 0">Nama</h5>
+                  <p>konten</p>
+                </td>
+                <td width="10%" style="vertical-align: top;padding: 0;"><p>08/06/2022</p></td>
+              </tr>
+            </body>
+          </table>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- End Gift -->
+
+    <div class="navigasi text-center" style="width: 100%;">
+      <div class="container">
+        <div class="row" style="height: 45px;">
+        <div class="col-sm-12">
+          <table width="100%">
+        <tbody>
+          <tr>
+            <td><a class="page-scroll" href="#sampul"><img src="img/house-solid.svg" width="20px"></a></td>
+            <td><a class="page-scroll" href="#pembuka"><img src="img/heart-solid.svg" width="20px"></a></td>
+            <td><a class="page-scroll" href="#acara"><img src="img/location-dot-solid.svg" width="20px"></a></td>
+            <td><a class="page-scroll" href="#story"><img src="img/image-solid.svg" width="20px"></a></td>
+            <td><a class="page-scroll" href="#ucapanDoa"><img src="img/comment-dots-solid.svg" width="20px"></a></td>
+          </tr>
+          <tr>
+            <td>Home</td>
+            <td>Mempelai</td>
+            <td>Acara</td>
+            <td>Galeri</td>
+            <td>Ucapan</td>
+          </tr>
+        </tbody>
+      </table>
         </div>
       </div>
-    </section> -->
-    <!-- awal contact -->
-
-    <!-- footer -->
-
-    <!-- akhir footer -->
-    <!-- <footer>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-sm-12">
-            <p>&copy 2021 | built with <i class="glyphicon glyphicon-heart"></i> by <a href="http://instagram.com/alexdarmawan">Alex Darmawan</a></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <a href="http://instagram.com/alexdarmawan" class="btn btn-danger">Subscribe</a>
-          </div>
-        </div>
       </div>
-    </footer> -->
-    <!-- akhir portfolio -->
+      
+      
+    </div>
 
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+    <!-- <script type="text/javascript" src="js/script.js"></script> -->
+    <script type="text/javascript">
+
+      if (window.innerWidth < 680) {
+        $('.navigasi').addClass('animasi');
+      }
+      else {
+        $('.navigasi').removeClass('animasi');
+      }
+
+      window.onresize = function(event) {
+        // console.log(window.innerWidth);
+      // alert('resize');
+      if (window.innerWidth < 680) {
+        $('.navigasi').addClass('animasi');
+      }
+      else {
+        $('.navigasi').removeClass('animasi');
+      }
+    }
+
+      // event link di klik
+      $('.page-scroll').on('click', function(e){
+        
+        // ambil isi href
+        var tujuan = $(this).attr('href');
+
+        // tangkap elemen yg bersangkutan
+        var elementTujuan = $(tujuan);
+
+        // pindahkan scroll
+        $('html, body').animate({
+          scrollTop:elementTujuan.offset().top
+        }, 1250, 'swing');
+
+        e.preventDefault();
+      });
+
+      function copyText1() {
+        var rek1 = document.getElementById("rek1");
+        /* Copy the text inside the text field */
+        navigator.clipboard.writeText(rek1.value);
+        
+        /* Alert the copied text */
+        alert("Copied the text: " + rek1.value);
+        console.log(rek1.value);
+        
+      }
+
+      function copyText2() {
+        var rek2 = document.getElementById("rek2");
+        /* Copy the text inside the text field */
+        navigator.clipboard.writeText(rek2.value);
+        
+        /* Alert the copied text */
+        alert("Copied the text: " + rek2.value);
+        
+        console.log(rek2.value);
+        
+      }
+
+      // music control
+      $('#play-audio').on('click', function(){
+        // console.log('clik');
+        var bgAudio = document.getElementById("bg-audio");
+        var play = document.getElementById("play-audio");
+
+        if (this.className === 'fas fa-thin fa-play'){
+          this.className = 'fas fa-solid fa-pause';
+          bgAudio.play();
+        } else {
+          this.className = 'fas fa-thin fa-play';
+          bgAudio.pause();
+        }
+
+        // console.log(this.className);
+      });
+
+      // $('.penerima h1').addClass('bounce-enter-active');
+      $('.bOpen').on('click', function(){
+        // $(window).scrollTop(0); 
+        $('html').css({
+          'overflow-y': 'visible'
+        });
+
+        $('.penerima').hide(2000);
+
+        var bgAudio = document.getElementById("bg-audio");
+        bgAudio.play();
+
+        $('.sampul .sampultxt').addClass('bounce-enter-active');
+        $('.sampultxt').addClass('muncul');
+
+        $('.play-audio').addClass('animasi');
+
+      // $('.sampultxt').css({
+      //   // 'transform' : 'scale(1)'
+      // });
+
+      // $('.penerima').slideDown( 0 ).delay(1000).slideUp( 3000 ).css({
+      //   // 'display' : 'none',
+      //   // 'visibility' : 'hidden'
+      // });
+
+      // $('.penerima').css({
+      //   'display' : 'none'
+      // });
+
+      // $('.penerima h1').css({
+      //   'transform' : 'translateY(-9999)'
+      // });
+
+      $('.baground-penerima').css({
+        'display' : 'none'
+      });
+
+      $(window).scroll(function(){
+        var wScroll = $(this).scrollTop();
+
+        // console.log(wScroll);
+
+        // animasi Mempelai
+        if(wScroll >= $('.pembuka').offset().top - 200 ) {
+
+          $('.pbkJudul').addClass('muncul');
+          $('.pbkMempelai').addClass('muncul');
+
+          $('.cdDetail').each(function(i){
+            setTimeout(function(){
+              $('.cdDetail').eq(i).addClass('animasi'); 
+            }, 300 *(i+1));
+          });
+
+          // $('.mempelai img').css({
+          //   'transform' : 'scale(1)'
+          // });
+
+          // $('.mplKiri').addClass('mplMuncul');
+          // $('.mplKanan').addClass('mplMuncul');
+        }
+
+        // animasi Acara
+        if(wScroll >= $('.acara').offset().top - 200 ) {
+
+          $('.acaraJudul').addClass('animasi');
+          $('.akadRsp').addClass('animasi');
+          $('.acaratxt').addClass('animasi');
+          $('.mapMap').addClass('animasi');
+          $('.mapBrcd').addClass('animasi');
+        }  
+
+        // animasi Prokes
+        if(wScroll >= $('.prokes').offset().top - 500 ) {
+
+          $('.pksImg').each(function(i){
+            setTimeout(function(){
+              $('.pksImg').eq(i).addClass('animasi'); 
+              // console.log(i);
+            }, 300 *(i+1));
+        });
+            $('.pksImg').addClass('animasi');
+            $('.prokesJudul').addClass('animasi');
+        }  
+
+        // animasi Penutup
+        if(wScroll >= $('.penutup').offset().top - 200 ) {
+
+          $('.penutupCnt').addClass('animasi');
+        } 
+
+        // animasi Story
+        if(wScroll >= $('.story').offset().top - 200 ) {
+
+          $('.storyCnt').addClass('animasi');
+        } 
+
+        // animasi Story
+        if(wScroll >= $('.story').offset().top - 1  ) {
+
+          // $('.storyImg').addClass('animasi');
+          $('.storyImg').each(function(i){
+            setTimeout(function(){
+              $('.storyImg').eq(i).addClass('animasi'); 
+            }, 500 *(i+1));
+          });
+        } 
+
+        // MAP
+        // $('.ucapanDoa h4').css({
+        //   'transform' : 'translate(0px,'+ wScroll/20 +'%)'
+        // });
+
+
+        // // TOMBOL SCROLL BAWAH
+        // if ((wScroll >= $('.sampul').offset().top) && (wScroll < $('.mempelai').offset().top)) {
+        //   $('.bdMempelai').addClass('animasi');
+        // } else {
+        //   $('.bdMempelai').removeClass('animasi');
+        // }
+        
+        // if ((wScroll >= $('.mempelai').offset().top) && (wScroll < $('.acara').offset().top)) {
+        //   $('.bdAcara').addClass('animasi');
+        // } else {
+        //   $('.bdAcara').removeClass('animasi');
+        // }
+
+        // if ((wScroll >= $('.acara').offset().top) && (wScroll < $('.maps').offset().top)) {
+        //   $('.bdMaps').addClass('animasi');
+        // } else {
+        //   $('.bdMaps').removeClass('animasi');
+        // }
+
+        // if ((wScroll >= $('.maps').offset().top) && (wScroll < $('.prokes').offset().top)) {
+        //   $('.bdProkes').addClass('animasi');
+        // } else {
+        //   $('.bdProkes').removeClass('animasi');
+        // }
+
+        // if ((wScroll >= $('.prokes').offset().top) && (wScroll < $('.penutup').offset().top)) {
+        //   $('.bdPenutup').addClass('animasi');
+        // } else {
+        //   $('.bdPenutup').removeClass('animasi');
+        // }
+
+
+        // // PENERIMA H2
+        // $('.penerima h2').css({
+        //   'transform' : 'translate(0px, '+ wScroll/4 +'%)'
+        // });
+
+        // // jumbotron
+        // $('.jumbotron img').css({
+        //   'transform' : 'translate(0px, '+ wScroll/4 +'%)'
+        // });
+
+        // $('.jumbotron h1').css({
+        //   'transform' : 'translate(0px, '+ wScroll/2 +'%)'
+        // });
+
+        // $('.jumbotron p').css({
+        //   'transform' : 'translate(0px, '+ wScroll/1.2 +'%)'
+        // });
+
+        //console.log(wScroll);
+      });
+    });
+
+      // window.onbeforeunload = () => {  
+      //   $(window).scrollTop(0); 
+      // };
+    </script>
   </body>
 </html>
